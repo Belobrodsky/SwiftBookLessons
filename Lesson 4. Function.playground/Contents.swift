@@ -53,3 +53,57 @@ print("x=\(x) y = \(y)") //it works
 
 
 
+// variable input parametrs
+func varInputCount(codes: Int..., id: Int) -> Void {
+ var codeStrings=""
+    for oneCode in codes
+    {
+        codeStrings+=String(oneCode) + " ";
+    }
+print(codeStrings)
+}
+
+varInputCount(codes: 12, 34243,1231,1231,123, id: 4454)
+
+//cortezh for output
+
+func corForOutput(intItem: Int, strItem: String) -> (Int,String)
+{
+    let result = (intItem + 1, strItem + "_KV_07.08.2032")
+
+    print(result)
+    return result
+}
+
+corForOutput(intItem: 12, strItem: "KVB")
+
+//other version
+func corForOutput2(_ intItem: Int, _ strItem: String) -> (Int,String)
+{
+    let result = (intItem + 1, strItem + "_KV")
+
+    print(result)
+    return result
+}
+corForOutput2(26, "KVB")
+
+//third version
+func corForOutput3(outName1 intItem: Int, outName2 strItem: String) -> (Code: Int,Desc: String)
+{
+    let result = (intItem + 1, strItem + "_KV_output3_inner")
+
+    print(result)
+    return result
+}
+print(corForOutput3(outName1: 123, outName2:  "KVB-07082032").Desc + "_out")
+
+//default value in function
+func testDefaultValue(_ a: Int, _ b: String = "My Default value") -> Void
+{
+    print("Итого \(a) и \(b)")
+}
+
+testDefaultValue(1) //print default
+testDefaultValue(777,"My own test")
+
+
