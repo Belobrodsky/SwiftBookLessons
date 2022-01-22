@@ -17,7 +17,7 @@ closeFunc = { return true}
 
 
 //this is our wallets with banknots
-var wallet = [10,50,100,100,500,5000,100,50,100,100,100,5000]
+var wallet = [10,50,100,100,500,5000,100,50,100,100,100,5000,1000]
 
 //we have to handle each banknots wich 100 nominals
 
@@ -122,3 +122,50 @@ print("попробуем захватить все что больше 50 с п
 handledCup = handleCupurs(wallet: wallet, compare: { $0>50}) //  и действительно - ты же при объявлении указывал тип этого входного параметра - зачеим же дублироваться
 for item in handledCup
 {print(item)}  //КРУТО, ЭТО РАБОТАЕТ. А что так моджно было
+
+
+//если последний входной параметр в функцию является замыканием - то его можно легко вынести за скобку - такая возможность дана для удобства написания многострочных безымянных функций - попробуем сделать это
+//    попробуем сначала так
+//handledCup = handleCupurs(wallet: wallet, { $0>50})
+//без compare - не работает внутри скубки
+
+//вынос замыканя за скобким. Вынос замыкания за скобки удобен когда код очень длинный и много строк - для удобства чтения
+print("вынос замыкания за скобки")
+handledCup = handleCupurs(wallet: wallet) { $0>500}
+for item in handledCup
+{print(item)}  //КРУТО, ЭТО РАБОТАЕТ. А что так моджно было
+
+
+    /*
+     итак начинали с такого кода
+     handledCup = handleCupurs(wallet: wallet, compare: compare100) - ПОДСОВЫВАЛИ ИМЯ ДРУГОЙ ФУНКЦИИ С НУЖНОЙ СИГНАТУРОЙ
+     
+     handledCup = handleCupurs(wallet: wallet, compare: { (item: Int) -> Bool in return item>50})
+     ТУТ ПОДСОВЫВАЛИ ЗАМЫКАНИЕ В СУПЕР ЯВНОМ ПОЛНОМ ВИДЕ
+     а закончили таким
+     
+     handledCup = handleCupurs(wallet: wallet) { $0>500}
+     ТУТ ОКАЗАЛОСЬ ЧТО ДОСТАТОЧНО НЕСКОЛЬКИХ СИМВОЛОМ
+     
+     КАК ОКАЗЫВАЕТСЯ ВСЕ ТРИ ВАРИАНТА ЭТО ПОЛНОСТЬЮ РАВНОЗНАЧНЫЕ КОДА - ДУМАЮ ВОПРОС ТОЛЬКО В УДОБСТВЕ
+     */
+
+// пример многострочного замыкания вынесенного за скобки в вызове функции
+
+print("вынос замыкания МНОГОСТРОЧНОГО замыкания, которое целяет только нужные банкноты")
+
+//func handleCupurs(wallet: [Int], compare: (Int) -> Bool) -> [Int]
+// Так эта функция объявлена
+
+handledCup = handleCupurs(wallet: wallet) {
+    banknote in
+    for number in Array(arrayLiteral: 100,500)
+    {
+        if number==banknote {return true}
+    }
+    return false
+}
+for item in handledCup
+{print(item)}  //КРУТО, ЭТО РАБОТАЕТ. А что так моджно было
+
+
