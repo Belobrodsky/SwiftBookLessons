@@ -168,4 +168,8 @@ handledCup = handleCupurs(wallet: wallet) {
 for item in handledCup
 {print(item)}  //КРУТО, ЭТО РАБОТАЕТ. А что так моджно было
 
-
+//более язящный способ
+print("самый язящный на мой взгляд способ")
+handledCup = handleCupurs(wallet: wallet) { [50,100].contains($0) }
+for item in handledCup
+{print(item)}  //КРУТО, ЭТО РАБОТАЕТ. А что так моджно было
