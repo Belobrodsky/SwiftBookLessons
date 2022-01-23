@@ -48,9 +48,9 @@ let milesToDest = ["Moscow":120.0,"Dubai":50.0,"Paris":70.0]
 print(type(of: milesToDest))
 let kmToDest = milesToDest.flatMap {name,miles in [name:miles * 1.6093]}
 kmToDest
-//let newDict = Dictionary(kmToDest)
+let newDict = Dictionary(uniqueKeysWithValues: kmToDest)
 //let kmFlatToDest=kmToDest.flatMap({$0})
-print(type(of: kmToDest))
+print(type(of: newDict))
 //print(type(of: kmFlatToDest))
 
 
@@ -78,3 +78,30 @@ even2
 let startDistanceDict = ["Wolf 359":7.78, "Alpha Centauri B": 4.37, "Alfacentavr": 5.96]
 let closesStart = startDistanceDict.filter() {$0.value < 5.0}
 closesStart
+
+
+///reduce
+///
+///
+
+let cash = [123,432,1234,42,234,2131,]
+
+print(cash.reduce(1, +)); //вск просуммировать и прибавить 1
+
+//zip
+
+let collectionOne = [1,2,3]
+let collectionTwo = [4,5,6]
+print(type(of: collectionTwo))
+let zipSequence = zip(collectionOne,collectionTwo)
+print(type(of: zipSequence))
+let newArray2 = Array(zipSequence)
+print(type(of: newArray2))
+
+let newDictionary = Dictionary(uniqueKeysWithValues: zipSequence)
+newDictionary
+print(type(of: newDictionary))
+
+
+
+//collectionTwo.Su

@@ -88,6 +88,8 @@ func corForOutput2(_ intItem: Int, _ strItem: String) -> (Int,String)
 corForOutput2(26, "KVB")
 
 //third version
+///
+///
 func corForOutput3(outName1 intItem: Int, outName2 strItem: String) -> (Code: Int,Desc: String)
 {
     let result = (intItem + 1, strItem + "_KV_output3_inner")
