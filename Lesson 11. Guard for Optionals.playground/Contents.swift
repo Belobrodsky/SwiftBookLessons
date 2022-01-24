@@ -71,3 +71,10 @@ func someFunction()
 }
 someFunction() //внимание на порядо вывода
 
+
+//lazy calculations
+
+let someArray = [123,1231,343,123,12341,4312]
+let newArray = someArray.lazy.map({$0+1}).filter({$0<500})
+newArray
+print(newArray[0]) //без слова lazy вычисляется только тут
