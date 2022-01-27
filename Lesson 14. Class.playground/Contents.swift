@@ -7,6 +7,7 @@ class Chessman
     enum ChessManTape { case king, queen,castle,bishop,knight,pawn}
     enum ChessColors  {case white, black}
     
+ 
     let type: ChessManTape
     let color: ChessColors
     var coordinate: (String,Int)? = nil
