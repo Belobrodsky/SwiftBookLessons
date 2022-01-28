@@ -5,13 +5,21 @@ var greeting = "Hello, playground"
 
 enum TypeOfAnimals {case dog, cat, fish, hourse}
 
-class Animals
+protocol MastHaveName
+{
+    var name:String {get set}
+    func walk()->()
+
+}
+
+
+class Animals: MastHaveName
 {
     var name:String
     var type:TypeOfAnimals
     
     func walk(){
-    print("Go for a walk")
+
     }
     init(name:String,type: TypeOfAnimals)
     {
