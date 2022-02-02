@@ -71,7 +71,7 @@ func printMe()
 
 var myFiFo = FiFo(items: [421,14311341,123131,1311,121,1])
 
-guard let b = myFiFo.pop() else { return } //return //break //continue //throw}
+//guard let b = myFiFo.pop() else { return } //return //break //continue //throw}
 
 
 //myFiFo.pop()
